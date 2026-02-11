@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#0B0B0C" />
   <title>Support & Quick Guide</title>
+
   <style>
     :root{
       --bg:#0B0B0C;
       --card:#141416;
-      --card2:#101012;
       --text:#F5F5F7;
       --muted:#A9A9B2;
       --line:#242429;
       --accent:#5EEAD4;
       --accent2:#60A5FA;
-      --danger:#FB7185;
 
       --radius:18px;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -23,6 +22,8 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
+    /* No gradients anywhere: solid background */
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -34,6 +35,7 @@
     }
 
     a{color:inherit}
+
     .wrap{
       width:100%;
       max-width: 560px;
@@ -74,8 +76,9 @@
     }
     .pill strong{color:var(--text); font-weight:650}
 
+    /* Cards: solid background (no linear gradients) */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background: var(--card);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -83,7 +86,7 @@
       margin: 12px 0;
     }
     .card.soft{
-      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      background: var(--card);
       box-shadow: none;
     }
 
@@ -154,6 +157,7 @@
       font-size: 12px;
       color: var(--muted);
     }
+
     .badge{
       flex: 0 0 auto;
       font-size: 12px;
@@ -202,6 +206,7 @@
       color: var(--muted);
       line-height: 1.35;
     }
+
     .chev{
       width: 10px;
       height: 10px;
@@ -278,9 +283,7 @@
       text-align:center;
     }
 
-    /* Reduce motion if user prefers */
     @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto}
       .chev{transition:none}
       .btn{transition:none}
     }
@@ -300,7 +303,6 @@
       </div>
     </header>
 
-    <!-- Quick Start -->
     <section class="card">
       <div class="h2">Quick start</div>
       <p class="p">
@@ -314,7 +316,6 @@
       </ul>
     </section>
 
-    <!-- Scoring -->
     <section class="card">
       <div class="h2">How the scoring works</div>
       <p class="p">
@@ -385,7 +386,6 @@
       </div>
     </section>
 
-    <!-- Analytics Guide -->
     <section class="card">
       <div class="h2">Understanding the Analytics section</div>
       <p class="p">Tap each item to expand.</p>
@@ -511,7 +511,6 @@
       </details>
     </section>
 
-    <!-- Support / BMAC -->
     <section class="card">
       <div class="h2">Support the development</div>
       <p class="p">
@@ -522,12 +521,9 @@
           Open Buy Me a Coffee
         </a>
       </div>
-      <p class="mini">
-        This is optional. The app works without it.
-      </p>
+      <p class="mini">This is optional. The app works without it.</p>
     </section>
 
-    <!-- Account Deletion -->
     <section class="card">
       <div class="h2">Delete my account / data</div>
       <p class="p">
