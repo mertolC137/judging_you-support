@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0B0C" />
+  <title>Support & Quick Guide</title>
+  <style>
+    :root{
+      --bg:#0B0B0C;
+      --card:#141416;
+      --card2:#101012;
+      --text:#F5F5F7;
+      --muted:#A9A9B2;
+      --line:#242429;
+      --accent:#5EEAD4;
+      --accent2:#60A5FA;
+      --danger:#FB7185;
+
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(94,234,212,.14), transparent 55%),
+                  radial-gradient(1000px 700px at 110% 10%, rgba(96,165,250,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+    }
+
+    a{color:inherit}
+    .wrap{
+      width:100%;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 20px 16px 28px;
+    }
+
+    header{
+      padding: 8px 4px 14px;
+    }
+    .title{
+      font-size: 26px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 6px 0 6px;
+      font-weight: 760;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 8px 10px;
+      border-radius:999px;
+    }
+    .pill strong{color:var(--text); font-weight:650}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px 14px;
+      margin: 12px 0;
+    }
+    .card.soft{
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      box-shadow: none;
+    }
+
+    .h2{
+      font-size: 16px;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+      font-weight: 720;
+    }
+    .p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .list li{margin: 6px 0}
+    .list b{color: var(--text); font-weight: 650}
+
+    .callout{
+      margin-top:12px;
+      border: 1px solid rgba(94,234,212,.25);
+      background: rgba(94,234,212,.08);
+      padding: 12px 12px;
+      border-radius: 14px;
+    }
+    .callout .p{color:#D8FFF8}
+    .callout b{color:#EFFFFC}
+
+    .scores{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .scoreRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+    }
+    .scoreLeft{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width: 0;
+    }
+    .scoreLeft .what{
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 650;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .scoreLeft .cat{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .badge{
+      flex: 0 0 auto;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .pos{ border-color: rgba(94,234,212,.32); background: rgba(94,234,212,.10); color:#BFFFF4; }
+    .neg{ border-color: rgba(251,113,133,.32); background: rgba(251,113,133,.10); color:#FFD0D7; }
+
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+      margin: 10px 0;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .sumTitle{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
+    .sumTitle .top{
+      font-size: 14px;
+      font-weight: 740;
+      color: var(--text);
+      letter-spacing:-0.01em;
+    }
+    .sumTitle .sub{
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .chev{
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid rgba(245,245,247,.75);
+      border-bottom: 2px solid rgba(245,245,247,.75);
+      transform: rotate(-45deg);
+      transition: transform .18s ease;
+      margin-right: 2px;
+      flex:0 0 auto;
+    }
+    details[open] .chev{ transform: rotate(45deg); }
+
+    .detailBody{
+      padding: 0 12px 12px;
+      border-top:1px solid var(--line);
+    }
+    .detailBody .p{margin-top:10px}
+    .detailBody .list{margin-top:8px}
+
+    .btnRow{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      text-decoration:none;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-weight: 760;
+      letter-spacing: -0.01em;
+      transition: transform .06s ease, background .2s ease, border-color .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active{ transform: scale(.99); }
+
+    .btnPrimary{
+      background: rgba(94,234,212,.13);
+      border-color: rgba(94,234,212,.35);
+      color:#EFFFFC;
+    }
+    .btnPrimary:hover{ background: rgba(94,234,212,.16); }
+
+    .btnSecondary{
+      background: rgba(96,165,250,.12);
+      border-color: rgba(96,165,250,.35);
+      color:#EAF3FF;
+    }
+
+    .mini{
+      font-size:12px;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height:1.5;
+    }
+    .mini a{
+      color:#D6F7FF;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer{
+      padding: 14px 4px 0;
+      color: rgba(169,169,178,.75);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align:center;
+    }
+
+    /* Reduce motion if user prefers */
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto}
+      .chev{transition:none}
+      .btn{transition:none}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header>
+      <div class="title">Support & Quick Guide</div>
+      <p class="subtitle">How scoring works, how to read analytics, and how to get help.</p>
+
+      <div class="pillrow" aria-label="At a glance">
+        <div class="pill"><strong>Tip:</strong> Most patterns appear after 10–21 days</div>
+        <div class="pill"><strong>Goal:</strong> Direction + consistency</div>
+        <div class="pill"><strong>Scale:</strong> Keep points proportional</div>
+      </div>
+    </header>
+
+    <!-- Quick Start -->
+    <section class="card">
+      <div class="h2">Quick start</div>
+      <p class="p">
+        The first days can feel confusing because patterns need repeat data.
+        Your charts become much more meaningful after a couple of weeks.
+      </p>
+      <ul class="list">
+        <li>Create a few categories you care about (<b>Fitness</b>, <b>Diet</b>, <b>Sleep</b>…)</li>
+        <li>Log small events daily (good or bad—both matter)</li>
+        <li>Review <b>Overview</b> weekly to see trends and momentum</li>
+      </ul>
+    </section>
+
+    <!-- Scoring -->
+    <section class="card">
+      <div class="h2">How the scoring works</div>
+      <p class="p">
+        You define categories (Fitness, Diet, Sleep…). Each log entry adds points to a category.
+        Positive points support your goal, negative points work against it. Over time, the app turns
+        those daily results into trends, comparisons, streaks, and reports.
+      </p>
+
+      <div class="callout" role="note">
+        <p class="p"><b>Important:</b> Keep your scale consistent. If fast food is <b>−2</b>, a great healthy meal might be <b>+1</b> (not +10). You’re tracking momentum, not “perfect math.”</p>
+      </div>
+
+      <div class="h2" style="margin-top:14px;">Sample scoring</div>
+      <div class="scores" aria-label="Sample scoring list">
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">30 minutes of cycling</div>
+            <div class="cat">Fitness</div>
+          </div>
+          <div class="badge pos">+1</div>
+        </div>
+
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">10k steps</div>
+            <div class="cat">Fitness</div>
+          </div>
+          <div class="badge pos">+1</div>
+        </div>
+
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">Fast food</div>
+            <div class="cat">Diet</div>
+          </div>
+          <div class="badge neg">−2</div>
+        </div>
+
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">Sugary snack</div>
+            <div class="cat">Diet</div>
+          </div>
+          <div class="badge neg">−1</div>
+        </div>
+
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">7+ hours sleep</div>
+            <div class="cat">Sleep</div>
+          </div>
+          <div class="badge pos">+1</div>
+        </div>
+
+        <div class="scoreRow">
+          <div class="scoreLeft">
+            <div class="what">Late bedtime</div>
+            <div class="cat">Sleep</div>
+          </div>
+          <div class="badge neg">−1</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:12px" role="note">
+        <p class="p">
+          <b>Why it takes time:</b> Week 1 can look random. By week 3+, trends stabilize and the analytics start showing clear direction.
+        </p>
+      </div>
+    </section>
+
+    <!-- Analytics Guide -->
+    <section class="card">
+      <div class="h2">Understanding the Analytics section</div>
+      <p class="p">Tap each item to expand.</p>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">1. Overview</div>
+            <div class="sub">Your dashboard: trend, momentum, and top contributors</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            Use this page to understand the big picture. Daily values can bounce up and down; the smoother trend shows direction.
+          </p>
+          <ul class="list">
+            <li>Focus on the <b>trend</b> (drifting up or down)</li>
+            <li>Compare daily spikes vs the smoother line</li>
+            <li>Check which categories contribute most to recent performance</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">2. Insights</div>
+            <div class="sub">Highlights and patterns that repeat</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            Insights help you spot what tends to lead to good or bad periods, especially after you have enough history.
+          </p>
+          <ul class="list">
+            <li>Repeated good days vs repeated problem days</li>
+            <li>Signals before dips (sleep, weekends, workload)</li>
+            <li>Your best “levers”: small actions with big impact</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">3. Category Deep Dive</div>
+            <div class="sub">Zoom into one category and see drivers</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            This view is for improving one category at a time. It shows what moves that category most.
+          </p>
+          <ul class="list">
+            <li>Which events drive the category the most</li>
+            <li>Whether progress is consistent or “bursty”</li>
+            <li>Gaps: days with few logs can look like flat days</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">4. Weekly / Monthly Reports</div>
+            <div class="sub">Progress summarized in clean time blocks</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            Reports reduce noise. They’re best for checking whether you’re improving over time.
+          </p>
+          <ul class="list">
+            <li>Week-over-week or month-over-month improvement</li>
+            <li>Best/worst categories for the period</li>
+            <li>Whether you’re stable, improving, or fluctuating</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">5. Calendar</div>
+            <div class="sub">Timeline view of your days and clusters</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            The calendar helps you see patterns in context (weekends, travel, deadlines).
+          </p>
+          <ul class="list">
+            <li>Clusters: dips often appear as blocks</li>
+            <li>Context cues: weekends vs weekdays</li>
+            <li>Days with fewer logs (useful to notice gaps)</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sumTitle">
+            <div class="top">6. Streaks</div>
+            <div class="sub">Consistency tracking for “good” performance</div>
+          </div>
+          <div class="chev" aria-hidden="true"></div>
+        </summary>
+        <div class="detailBody">
+          <p class="p">
+            Streaks reward consistency. They’re great for building long-term behavior momentum.
+          </p>
+          <ul class="list">
+            <li>Which categories you’re consistent in</li>
+            <li>Where streaks break most often</li>
+            <li>Whether your goal is “do more” or “avoid” (based on category settings)</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- Support / BMAC -->
+    <section class="card">
+      <div class="h2">Support the development</div>
+      <p class="p">
+        If you enjoy the app and want to help keep it improving, you can support the developer here.
+      </p>
+      <div class="btnRow">
+        <a class="btn btnPrimary" href="https://buymeacoffee.com/mertolc137" target="_blank" rel="noopener noreferrer">
+          Open Buy Me a Coffee
+        </a>
+      </div>
+      <p class="mini">
+        This is optional. The app works without it.
+      </p>
+    </section>
+
+    <!-- Account Deletion -->
+    <section class="card">
+      <div class="h2">Delete my account / data</div>
+      <p class="p">
+        If you want your account deleted, send an email to <b>judgingyoutheapp@gmail.com</b> from the email address you used in the app.
+      </p>
+      <ul class="list">
+        <li>Include your account email address (the one you log in with)</li>
+        <li>Write: “Please delete my account and associated data.”</li>
+      </ul>
+
+      <div class="btnRow">
+        <a
+          class="btn btnSecondary"
+          href="mailto:judgingyoutheapp@gmail.com?subject=Account%20deletion%20request&body=Hello%2C%0A%0AI%20would%20like%20to%20delete%20my%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%5Benter%20your%20email%20here%5D%0A%0AThank%20you."
+        >
+          Email account deletion request
+        </a>
+      </div>
+
+      <p class="mini">
+        Note: For security, send the request from the same email you used to sign in.
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> • Support page
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
